@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Word Counter</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef4ff;
+            text-align: center;
+            padding: 30px 15px;
+        }
+
+        .card {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 4px 18px #ccd5e5;
+        }
+
+        textarea {
+            width: 95%;
+            height: 180px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #aaa;
+            border-radius: 8px;
+        }
+
+        button {
+            margin: 12px 5px;
+            padding: 12px 18px;
+            border: none;
+            border-radius: 8px;
+            background: #155eef;
+            color: white;
+            cursor: pointer;
+        }
+
+        .result {
+            font-size: 20px;
+            font-weight: bold;
+            color: #155eef;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h1>Free Word Counter</h1>
+        <p>Count words and characters instantly.</p>
+
+        <textarea id="text"
+            placeholder="Type or paste your text here..."></textarea>
+
+        <br>
+
+        <button onclick="countWords()">Count Words</button>
+        <button onclick="clearText()">Clear</button>
+
+        <p class="result" id="words">Words: 0</p>
+        <p class="result" id="chars">Characters: 0</p>
+    </div>
+
+    <script>
+        function countWords() {
+            let text = document.getElementById("text").value;
+            let trimmed = text.trim();
+            let words = trimmed ? trimmed.split(/\s+/).length : 0;
+
+            document.getElementById("words").textContent =
+                "Words: " + words;
+
+            document.getElementById("chars").textContent =
+                "Characters: " + text.length;
+        }
+
+        function clearText() {
+            document.getElementById("text").value = "";
+            countWords();
+        }
+    </script>
+</body>
+</html>
