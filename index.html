@@ -1,88 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Word Counter</title>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #eef4ff;
-            text-align: center;
-            padding: 30px 15px;
-        }
-
-        .card {
-            max-width: 600px;
-            margin: auto;
-            background: white;
-            padding: 25px;
-            border-radius: 16px;
-            box-shadow: 0 4px 18px #ccd5e5;
-        }
-
-        textarea {
-            width: 95%;
-            height: 180px;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #aaa;
-            border-radius: 8px;
-        }
-
-        button {
-            margin: 12px 5px;
-            padding: 12px 18px;
-            border: none;
-            border-radius: 8px;
-            background: #155eef;
-            color: white;
-            cursor: pointer;
-        }
-
-        .result {
-            font-size: 20px;
-            font-weight: bold;
-            color: #155eef;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Online Text Tools</title>
+<meta name="description" content="Free online word counter and text case converter. Count words and characters, and convert text easily.">
+<style>
+body{font-family:Arial,sans-serif;background:#f0f4f8;margin:0;padding:20px;color:#222}
+.container{max-width:700px;margin:25px auto;background:white;padding:25px;border-radius:14px;box-shadow:0 3px 15px #ccc}
+h1{text-align:center;color:#174ea6}
+h2{color:#174ea6}
+textarea{width:100%;height:130px;box-sizing:border-box;padding:12px;font-size:16px;border:1px solid #aaa;border-radius:8px}
+button{padding:11px 14px;margin:5px 3px;border:0;border-radius:7px;background:#1769e0;color:white;cursor:pointer}
+button:hover{background:#0d47a1}
+.result{font-weight:bold;margin:12px 0}
+hr{border:0;border-top:1px solid #ddd;margin:25px 0}
+</style>
 </head>
-
 <body>
-    <div class="card">
-        <h1>Free Word Counter</h1>
-        <p>Count words and characters instantly.</p>
+<div class="container">
+<h1>Free Online Text Tools</h1>
+<p>Free tools to count words, count characters, and change text case.</p>
 
-        <textarea id="text"
-            placeholder="Type or paste your text here..."></textarea>
+<h2>1. Word Counter</h2>
+<textarea id="text" placeholder="Type or paste your text here..." oninput="countText()"></textarea>
+<p class="result" id="result">Words: 0 | Characters: 0</p>
+<button onclick="clearText()">Clear Text</button>
 
-        <br>
+<hr>
 
-        <button onclick="countWords()">Count Words</button>
-        <button onclick="clearText()">Clear</button>
+<h2>2. Case Converter</h2>
+<textarea id="caseText" placeholder="Enter text to convert..."></textarea><br>
+<button onclick="convertCase('upper')">UPPERCASE</button>
+<button onclick="convertCase('lower')">lowercase</button>
+<button onclick="convertCase('title')">Title Case</button>
+<button onclick="convertCase('sentence')">Sentence case</button>
+<button onclick="copyText()">Copy Text</button>
+<p id="message"></p>
 
-        <p class="result" id="words">Words: 0</p>
-        <p class="result" id="chars">Characters: 0</p>
-    </div>
+</div>
 
-    <script>
-        function countWords() {
-            let text = document.getElementById("text").value;
-            let trimmed = text.trim();
-            let words = trimmed ? trimmed.split(/\s+/).length : 0;
-
-            document.getElementById("words").textContent =
-                "Words: " + words;
-
-            document.getElementById("chars").textContent =
-                "Characters: " + text.length;
-        }
-
-        function clearText() {
-            document.getElementById("text").value = "";
-            countWords();
-        }
-    </script>
+<script>
+function countText(){
+let text=document.getElementById("text").value;
+let words=text.trim()?text.trim().split(/\s+/).length:0;
+document.getElementById("result").textContent=
+"Words: "+words+" | Characters: "+text.length;
+}
+function clearText(){
+document.getElementById("text").value="";
+countText();
+}
+function convertCase(type){
+let box=document.getElementById("caseText");
+let text=box.value;
+if(type==="upper") text=text.toUpperCase();
+if(type==="lower") text=text.toLowerCase();
+if(type==="title") text=text.toLowerCase().replace(/\b\w/g,c=>c.toUpperCase());
+if(type==="sentence") text=text.toLowerCase().replace(/(^\s*\w|[.!?]\s+\w)/g,c=>c.toUpperCase());
+box.value=text;
+document.getElementById("message").textContent="Text converted!";
+}
+function copyText(){
+let box=document.getElementById("caseText");
+box.select();
+if(navigator.clipboard && window.isSecureContext){
+navigator.clipboard.writeText(box.value).then(()=>{
+document.getElementById("message").textContent="Text copied!";
+});
+}else{
+document.execCommand("copy");
+document.getElementById("message").textContent="Text copied!";
+}
+}
+</script>
 </body>
 </html>
