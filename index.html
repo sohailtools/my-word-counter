@@ -70,8 +70,9 @@ document.execCommand("copy");
 document.getElementById("message").textContent="Text copied!";
 }
 function removeSpaces(){
-const text=document.getElementById("spaceText").value;
-document.getElementById("spaceResult").textContent=text.replace(/\s+/g," ").trim();
+const box = document.getElementById("spaceText");
+box.value = box.value.replace(/\s+/g, " ").trim();
+document.getElementById("spaceResult").textContent = "Extra spaces removed!";
 }
 </script>
 </body>
