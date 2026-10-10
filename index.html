@@ -11,14 +11,8 @@
 }
 
 body {
-<section style="text-align:center;padding:35px 15px;">
-<h1 style="color:#60a5fa;font-size:36px;">Welcome to TextPro</h1>
-<p style="color:#94a3b8;">Your Free Online Text Tools</p>
-<p style="color:#e2e8f0;">Count words, convert text and remove extra spaces in seconds.</p>
-<a href="#tools" style="display:inline-block;background:#2563eb;color:white;padding:12px 22px;border-radius:8px;text-decoration:none;">Start Using Tools</a>
-</section>
     margin: 0;
-    padding: 25px 15px;
+    padding: 20px 15px;
     font-family: Arial, sans-serif;
     background: #0b1120;
     color: #e2e8f0;
@@ -29,20 +23,54 @@ body {
     margin: auto;
 }
 
-header {
+nav {
+    text-align: center;
+    padding: 15px 5px;
+}
+
+nav a {
+    color: #60a5fa;
+    margin: 8px;
+    text-decoration: none;
+}
+
+.welcome {
     text-align: center;
     padding: 35px 10px;
 }
 
-header h1 {
-    font-size: 38px;
-    margin-bottom: 10px;
+.welcome h1 {
     color: #60a5fa;
+    font-size: 36px;
+}
+
+.welcome p {
+    line-height: 1.6;
+    color: #94a3b8;
+}
+
+.start-button {
+    display: inline-block;
+    background: #2563eb;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+header {
+    text-align: center;
+    padding: 25px 10px;
+}
+
+header h1 {
+    color: #60a5fa;
+    font-size: 32px;
 }
 
 header p {
     color: #94a3b8;
-    line-height: 1.6;
 }
 
 .card {
@@ -56,7 +84,6 @@ header p {
 
 h2 {
     color: #7dd3fc;
-    margin-top: 0;
     font-size: 22px;
 }
 
@@ -72,13 +99,7 @@ textarea {
     padding: 14px;
     font-size: 16px;
     line-height: 1.6;
-    outline: none;
     margin: 15px 0;
-}
-
-textarea:focus {
-    border-color: #38bdf8;
-    box-shadow: 0 0 0 2px #38bdf820;
 }
 
 button {
@@ -88,15 +109,12 @@ button {
     border-radius: 8px;
     padding: 12px 16px;
     margin: 5px 3px 5px 0;
-    font-size: 14px;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.2s;
 }
 
 button:hover {
     background: #0ea5e9;
-    transform: translateY(-1px);
 }
 
 .result {
@@ -122,7 +140,21 @@ footer {
 </head>
 
 <body>
-<div class="container">
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#tools">Tools</a>
+    <a href="#about">About</a>
+</nav>
+
+<section class="welcome" id="home">
+    <h1>Welcome to TextPro</h1>
+    <p>Your Free Online Text Tools</p>
+    <p>Count words, convert text and remove extra spaces in seconds.</p>
+    <a class="start-button" href="#tools">Start Using Tools</a>
+</section>
+
+<div class="container" id="tools">
 
 <header>
     <h1>⚡ TextPro</h1>
@@ -167,6 +199,14 @@ footer {
     <button onclick="removeSpaces()">Clean My Text</button>
     <p class="result" id="spaceResult"></p>
 </div>
+
+<section class="card" id="about">
+    <h2>About TextPro</h2>
+    <p class="subtitle">
+        TextPro provides simple and free online tools to help you
+        count words, convert text and remove extra spaces quickly.
+    </p>
+</section>
 
 <footer>
     © 2026 TextPro · Free Online Text Tools
@@ -229,6 +269,7 @@ function copyText() {
 function fallbackCopy(box) {
     box.select();
     const copied = document.execCommand("copy");
+
     document.getElementById("message").textContent =
         copied ? "Text copied successfully!" :
         "Please copy the selected text manually.";
