@@ -3,53 +3,114 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Online Text Tools</title>
+<title>TextPro - Free Text Tools</title>
 
 <style>
-body {
-    font-family: Arial, sans-serif;
-    background: #f0f4f8;
-    margin: 0;
-    padding: 20px;
-    color: #222;
-}
-.container {
-    max-width: 700px;
-    margin: 25px auto;
-    background: white;
-    padding: 25px;
-    border-radius: 14px;
-    box-shadow: 0 3px 15px #ccc;
-}
-h1, h2 {
-    color: #174ea6;
-}
-textarea {
-    width: 100%;
-    height: 130px;
+* {
     box-sizing: border-box;
-    padding: 12px;
+}
+
+body {
+    margin: 0;
+    padding: 25px 15px;
+    font-family: Arial, sans-serif;
+    background: #0b1120;
+    color: #e2e8f0;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+
+header {
+    text-align: center;
+    padding: 35px 10px;
+}
+
+header h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+    color: #60a5fa;
+}
+
+header p {
+    color: #94a3b8;
+    line-height: 1.6;
+}
+
+.card {
+    background: #151f32;
+    border: 1px solid #293750;
+    border-radius: 16px;
+    padding: 24px;
+    margin: 20px 0;
+    box-shadow: 0 8px 25px #00000025;
+}
+
+h2 {
+    color: #7dd3fc;
+    margin-top: 0;
+    font-size: 22px;
+}
+
+textarea {
+    display: block;
+    width: 100%;
+    min-height: 130px;
+    resize: vertical;
+    background: #0b1120;
+    color: #f1f5f9;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 14px;
     font-size: 16px;
-    border: 1px solid #aaa;
-    border-radius: 8px;
+    line-height: 1.6;
+    outline: none;
+    margin: 15px 0;
 }
+
+textarea:focus {
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 2px #38bdf820;
+}
+
 button {
-    padding: 11px 14px;
-    margin: 5px 3px;
-    border: 0;
-    border-radius: 7px;
-    background: #1769e0;
+    background: #2563eb;
     color: white;
-    cursor: pointer;
-}
-.result {
+    border: none;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 5px 3px 5px 0;
+    font-size: 14px;
     font-weight: bold;
-    margin: 12px 0;
+    cursor: pointer;
+    transition: 0.2s;
 }
-hr {
-    border: 0;
-    border-top: 1px solid #ddd;
-    margin: 25px 0;
+
+button:hover {
+    background: #0ea5e9;
+    transform: translateY(-1px);
+}
+
+.result {
+    color: #a5f3fc;
+    font-weight: bold;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.subtitle {
+    color: #94a3b8;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+footer {
+    text-align: center;
+    color: #64748b;
+    padding: 25px 10px;
+    font-size: 13px;
 }
 </style>
 </head>
@@ -57,40 +118,62 @@ hr {
 <body>
 <div class="container">
 
-<h1>Free Online Text Tools</h1>
-<p>Free tools to count words, change text case, and remove extra spaces.</p>
+<header>
+    <h1>⚡ TextPro</h1>
+    <p>Your simple, free and powerful online text tools.</p>
+</header>
 
-<h2>1. Word Counter</h2>
-<textarea id="text" placeholder="Type or paste your text here..." oninput="countText()"></textarea>
-<p class="result" id="result">Words: 0 | Characters: 0</p>
-<button onclick="clearText()">Clear Text</button>
+<div class="card">
+    <h2>01. Word Counter</h2>
+    <p class="subtitle">Count words and characters instantly.</p>
 
-<hr>
+    <textarea id="text"
+    placeholder="Type or paste your text here..."
+    oninput="countText()"></textarea>
 
-<h2>2. Case Converter</h2>
-<textarea id="caseText" placeholder="Enter text to convert..."></textarea>
-<br>
-<button onclick="convertCase('upper')">UPPERCASE</button>
-<button onclick="convertCase('lower')">lowercase</button>
-<button onclick="convertCase('title')">Title Case</button>
-<button onclick="convertCase('sentence')">Sentence Case</button>
-<button onclick="copyText()">Copy Text</button>
-<p id="message"></p>
+    <p class="result" id="result">Words: 0 | Characters: 0</p>
+    <button onclick="clearText()">Clear Text</button>
+</div>
 
-<hr>
+<div class="card">
+    <h2>02. Case Converter</h2>
+    <p class="subtitle">Change your text to any case you need.</p>
 
-<h2>3. Remove Extra Spaces</h2>
-<textarea id="spaceText" placeholder="Paste your text here..."></textarea>
-<br>
-<button onclick="removeSpaces()">Remove Extra Spaces</button>
-<p id="spaceResult"></p>
+    <textarea id="caseText"
+    placeholder="Enter text to convert..."></textarea>
+
+    <button onclick="convertCase('upper')">UPPERCASE</button>
+    <button onclick="convertCase('lower')">lowercase</button>
+    <button onclick="convertCase('title')">Title Case</button>
+    <button onclick="convertCase('sentence')">Sentence Case</button>
+    <button onclick="copyText()">Copy Text</button>
+
+    <p class="result" id="message"></p>
+</div>
+
+<div class="card">
+    <h2>03. Remove Extra Spaces</h2>
+    <p class="subtitle">Clean up unnecessary spaces in your text.</p>
+
+    <textarea id="spaceText"
+    placeholder="Paste your text here..."></textarea>
+
+    <button onclick="removeSpaces()">Clean My Text</button>
+    <p class="result" id="spaceResult"></p>
+</div>
+
+<footer>
+    © 2026 TextPro · Free Online Text Tools
+</footer>
 
 </div>
 
 <script>
 function countText() {
     const text = document.getElementById("text").value;
-    const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+    const words = text.trim()
+        ? text.trim().split(/\s+/).length : 0;
+
     document.getElementById("result").textContent =
         "Words: " + words + " | Characters: " + text.length;
 }
@@ -109,39 +192,49 @@ function convertCase(type) {
     } else if (type === "lower") {
         text = text.toLowerCase();
     } else if (type === "title") {
-        text = text.toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
+        text = text.toLowerCase()
+            .replace(/\b\w/g, c => c.toUpperCase());
     } else if (type === "sentence") {
-        text = text.toLowerCase().replace(/(^\s*\w|[.!?]\s+\w)/g, c => c.toUpperCase());
+        text = text.toLowerCase()
+            .replace(/(^\s*\w|[.!?]\s+\w)/g,
+            c => c.toUpperCase());
     }
 
     box.value = text;
-    document.getElementById("message").textContent = "Text converted!";
+    document.getElementById("message").textContent =
+        "Text converted successfully!";
 }
 
 function copyText() {
     const box = document.getElementById("caseText");
-    box.select();
 
     if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(box.value)
-            .then(() => {
-                document.getElementById("message").textContent = "Text copied!";
-            })
-            .catch(() => {
-                document.getElementById("message").textContent =
-                    "Please select and copy the text manually.";
-            });
+        .then(() => {
+            document.getElementById("message").textContent =
+                "Text copied successfully!";
+        })
+        .catch(() => fallbackCopy(box));
     } else {
-        const copied = document.execCommand("copy");
-        document.getElementById("message").textContent =
-            copied ? "Text copied!" : "Please copy the selected text manually.";
+        fallbackCopy(box);
     }
+}
+
+function fallbackCopy(box) {
+    box.select();
+    const copied = document.execCommand("copy");
+    document.getElementById("message").textContent =
+        copied ? "Text copied successfully!" :
+        "Please copy the selected text manually.";
 }
 
 function removeSpaces() {
     const box = document.getElementById("spaceText");
+
     box.value = box.value.replace(/\s+/g, " ").trim();
-    document.getElementById("spaceResult").textContent = "Extra spaces removed!";
+
+    document.getElementById("spaceResult").textContent =
+        "Your text is clean!";
 }
 </script>
 
