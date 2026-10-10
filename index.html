@@ -4,15 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Free Online Text Tools</title>
-<meta name="description" content="Free online word counter and text case converter. Count words and characters, and convert text easily.">
 <style>
 body{font-family:Arial,sans-serif;background:#f0f4f8;margin:0;padding:20px;color:#222}
 .container{max-width:700px;margin:25px auto;background:white;padding:25px;border-radius:14px;box-shadow:0 3px 15px #ccc}
-h1{text-align:center;color:#174ea6}
-h2{color:#174ea6}
+h1,h2{color:#174ea6}
 textarea{width:100%;height:130px;box-sizing:border-box;padding:12px;font-size:16px;border:1px solid #aaa;border-radius:8px}
 button{padding:11px 14px;margin:5px 3px;border:0;border-radius:7px;background:#1769e0;color:white;cursor:pointer}
-button:hover{background:#0d47a1}
 .result{font-weight:bold;margin:12px 0}
 hr{border:0;border-top:1px solid #ddd;margin:25px 0}
 </style>
@@ -38,21 +35,26 @@ hr{border:0;border-top:1px solid #ddd;margin:25px 0}
 <button onclick="copyText()">Copy Text</button>
 <p id="message"></p>
 
+<hr>
+
+<h2>3. Remove Extra Spaces</h2>
+<textarea id="spaceText" placeholder="Paste your text here..."></textarea><br>
+<button onclick="removeSpaces()">Remove Extra Spaces</button>
+<p id="spaceResult"></p>
 </div>
 
 <script>
 function countText(){
-let text=document.getElementById("text").value;
-let words=text.trim()?text.trim().split(/\s+/).length:0;
-document.getElementById("result").textContent=
-"Words: "+words+" | Characters: "+text.length;
+const text=document.getElementById("text").value;
+const words=text.trim()?text.trim().split(/\s+/).length:0;
+document.getElementById("result").textContent="Words: "+words+" | Characters: "+text.length;
 }
 function clearText(){
 document.getElementById("text").value="";
 countText();
 }
 function convertCase(type){
-let box=document.getElementById("caseText");
+const box=document.getElementById("caseText");
 let text=box.value;
 if(type==="upper") text=text.toUpperCase();
 if(type==="lower") text=text.toLowerCase();
@@ -62,37 +64,15 @@ box.value=text;
 document.getElementById("message").textContent="Text converted!";
 }
 function copyText(){
-let box=document.getElementById("caseText");
+const box=document.getElementById("caseText");
 box.select();
-if(navigator.clipboard && window.isSecureContext){
-navigator.clipboard.writeText(box.value).then(()=>{
-document.getElementById("message").textContent="Text copied!";
-});
-}else{
 document.execCommand("copy");
 document.getElementById("message").textContent="Text copied!";
 }
-}
-<hr>
-
-<h2>3. Remove Extra Spaces</h2>
-<textarea id="spaceText" placeholder="Paste your text here..." style="width:100%;height:100px;padding:10px;box-sizing:border-box;"></textarea>
-<br>
-<button onclick="removeSpaces()">Remove Extra Spaces</button>
-<p id="spaceResult"></p>
-function removeSpaces() {
-  let box = document.getElementById("spaceText");
-  box.value = box.value.trim().replace(/\s+/g, " ");
-  document.getElementById("spaceResult").textContent =
-    "Extra spaces removed!";
+function removeSpaces(){
+const text=document.getElementById("spaceText").value;
+document.getElementById("spaceResult").textContent=text.replace(/\s+/g," ").trim();
 }
 </script>
-  <hr>
-function removeSpaces() {
-  let text = document.getElementById("spaceText").value;
-  let result = text.replace(/\s+/g, " ").trim();
-  document.getElementById("spaceResult").innerText = result;
-}
 </body>
 </html>
-
