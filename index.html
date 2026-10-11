@@ -120,20 +120,21 @@ textarea {
 }
 
 button {
-    background: #2563eb;
+    background: linear-gradient(135deg, #2563eb, #0ea5e9);
     color: white;
     border: none;
-    border-radius: 8px;
-    padding: 12px 16px;
+    border-radius: 10px;
+    padding: 12px 18px;
     margin: 5px 3px 5px 0;
     font-weight: bold;
     cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 button:hover {
-    background: #0ea5e9;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px #2563eb55;
 }
-
 .result {
     color: #a5f3fc;
     font-weight: bold;
