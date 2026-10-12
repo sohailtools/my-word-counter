@@ -253,7 +253,8 @@ function countText() {
         ? text.trim().split(/\s+/).length : 0;
 
     document.getElementById("result").textContent =
-        "Words: " + words + " | Characters: " + text.length;
+   "Words: " + words + " | Characters: " + text.length +
+" | Reading Time: " + Math.max(1, Math.ceil(words / 200)) + " min";
 }
 
 function clearText() {
