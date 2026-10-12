@@ -3,361 +3,263 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Word Counter, Case Converter & Text Cleaner | TextPro</title>
-<meta name="description" content="Use TextPro's free online word counter, case converter and extra space remover. Clean, edit and count your text quickly and easily.">
-<meta name="google-site-verification" content="jOlrYqqXmOFLNPpm9BnTKphDSH9FK6ZmPOsKA3M99UU" />
-    <style>
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    padding: 20px 15px;
-    font-family: Arial, sans-serif;
-    background: #0b1120;
-    color: #e2e8f0;
-}
-
-.container {
-    max-width: 800px;
-    margin: auto;
-}
-
-nav {
-    text-align: center;
-    padding: 15px 5px;
-    background: #151f32;
-    border: 1px solid #293750;
-    border-radius: 14px;
-    max-width: 800px;
-    margin: 0 auto 20px;
-}
-
-nav a {
-    display: inline-block;
-    color: #93c5fd;
-    margin: 8px 12px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-nav a:hover {
-    color: #ffffff;
-}
-
-.welcome {
-    text-align: center;
-    padding: 35px 10px;
-}
-
-.welcome h1 {
-    color: #60a5fa;
-    font-size: 36px;
-}
-
-.welcome p {
-    line-height: 1.6;
-    color: #94a3b8;
-}
-
-.start-button {
-    display: inline-block;
-    background: #2563eb;
-    color: white;
-    padding: 12px 22px;
-    border-radius: 8px;
-    text-decoration: none;
-    margin-top: 10px;
-}
-
-header {
-    text-align: center;
-    padding: 25px 10px;
-}
-
-header h1 {
-    color: #60a5fa;
-    font-size: 32px;
-}
-
-header p {
-    color: #94a3b8;
-}
-
-.card {
-    background: linear-gradient(145deg, #151f32, #111a2b);
-    border: 1px solid #334155;
-    border-radius: 20px;
-    padding: 28px;
-    margin: 24px 0;
-    box-shadow: 0 10px 30px #00000035;
-    transition: border-color 0.3s ease, transform 0.3s ease;
-}
-
-.card:hover {
-    border-color: #60a5fa;
-    transform: translateY(-3px);
-}
-h2 {
-    color: #7dd3fc;
-    font-size: 22px;
-}
-
-textarea {
-    display: block;
-    width: 100%;
-    min-height: 130px;
-    resize: vertical;
-    background: #0b1120;
-    color: #f1f5f9;
-    border: 1px solid #334155;
-    border-radius: 10px;
-    padding: 14px;
-    font-size: 16px;
-    line-height: 1.6;
-    margin: 15px 0;
-}
-
-button {
-    background: linear-gradient(135deg, #2563eb, #0ea5e9);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    padding: 12px 18px;
-    margin: 5px 3px 5px 0;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px #2563eb55;
-}
-.result {
-    color: #a5f3fc;
-    font-weight: bold;
-    line-height: 1.6;
-    overflow-wrap: anywhere;
-}
-
-.subtitle {
-    color: #94a3b8;
-    font-size: 14px;
-    line-height: 1.5;
-}
-
-footer {
-    text-align: center;
-    color: #64748b;
-    padding: 25px 10px;
-    font-size: 13px;
-}
-.welcome {
-animation: fadeIn 1s ease-in-out;
-}
-
-@keyframes fadeIn {
-from {
-opacity: 0;
-transform: translateY(15px);
-}
-to {
-opacity: 1;
-transform: translateY(0);
-}
-}
+<title>TextPro - Free Online Text Tools</title>
+<meta name="description" content="Free online word counter, case converter, text cleaner and other useful text tools.">
+<meta name="robots" content="index, follow">
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f4f7fc;color:#202b40;line-height:1.6}
+header{background:#10172a;color:white;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.logo{font-size:28px;font-weight:bold;color:#65d6ff}
+nav a{color:white;text-decoration:none;margin-left:15px}
+.hero{text-align:center;padding:45px 18px;background:linear-gradient(135deg,#10172a,#174a79);color:white}
+.hero h1{font-size:36px;margin:0 0 10px}
+.hero p{max-width:600px;margin:0 auto 20px}
+.hero a{display:inline-block;background:#65d6ff;color:#10172a;padding:10px 20px;border-radius:8px;text-decoration:none;font-weight:bold}
+.container{max-width:1100px;margin:auto;padding:30px 16px}
+.section-title{text-align:center;margin-bottom:25px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.card{background:white;border:1px solid #e3e9f2;border-radius:14px;padding:20px;box-shadow:0 5px 18px #152b4a0b}
+.card h3{margin-top:0}
+.card p{color:#68758b;font-size:14px}
+textarea,input{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:8px;font:14px Arial;margin:7px 0}
+textarea{min-height:110px;resize:vertical}
+button{background:#1769aa;color:white;border:0;border-radius:7px;padding:10px 13px;margin:5px 4px 0 0;cursor:pointer;font-weight:bold}
+button:hover{background:#104e82}
+.result{background:#f1f7fd;border-radius:8px;padding:10px;margin-top:10px;overflow-wrap:anywhere}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.stat{background:#eef6ff;padding:10px 4px;text-align:center;border-radius:8px}
+.stat strong{display:block;font-size:21px;color:#1769aa}
+.stat span{font-size:12px}
+.about{background:white;border-radius:14px;padding:22px}
+footer{background:#10172a;color:white;text-align:center;padding:22px;margin-top:25px}
+@media(max-width:500px){header{justify-content:center;gap:10px}nav a{margin:0 6px}.hero h1{font-size:29px}}
 </style>
 </head>
-
 <body>
-
-<nav>
-    <a href="#home">Home</a>
-    <a href="#tools">Tools</a>
-    <a href="#about">About</a>
-</nav>
-
-<section class="welcome" id="home">
-  <h1>Free Online Text Tools</h1>
-<p>Welcome to TextPro</p>
-<p>Count words, convert uppercase and lowercase text, and remove extra spaces instantly with our free online tools.</p>
-<a class="start-button" href="#tools">Explore Free Tools</a>
-</section>
-
-<div class="container" id="tools">
-
 <header>
-    <h1>⚡ TextPro</h1>
-    <p>Your simple, free and powerful online text tools.</p>
+<div class="logo">TextPro</div>
+<nav>
+<a href="#home">Home</a>
+<a href="#tools">Tools</a>
+<a href="#about">About</a>
+</nav>
 </header>
-
-<div class="card">
-    <h2>01. Word Counter</h2>
-    <p class="subtitle">Count words and characters instantly.</p>
-
-    <textarea id="text"
-    placeholder="Type or paste your text here..."
-    oninput="countText()"></textarea>
-
-    <p class="result" id="result">Words: 0 | Characters: 0</p>
-    <button onclick="clearText()">Clear Text</button>
-</div>
-
-<div class="card">
-    <h2>02. Case Converter</h2>
-    <p class="subtitle">Change your text to any case you need.</p>
-
-    <textarea id="caseText"
-    placeholder="Enter text to convert..."></textarea>
-
-    <button onclick="convertCase('upper')">UPPERCASE</button>
-    <button onclick="convertCase('lower')">lowercase</button>
-    <button onclick="convertCase('title')">Title Case</button>
-    <button onclick="convertCase('sentence')">Sentence Case</button>
-    <button onclick="copyText()">Copy Text</button>
-
-    <p class="result" id="message"></p>
-</div>
-
-<div class="card">
-    <h2>03. Remove Extra Spaces</h2>
-    <p class="subtitle">Clean up unnecessary spaces in your text.</p>
-
-    <textarea id="spaceText"
-    placeholder="Paste your text here..."></textarea>
-
-    <button onclick="removeSpaces()">Clean My Text</button>
-    <p class="result" id="spaceResult"></p>
-</div>
-<div class="card">
-    <h2>04. Reading Time Calculator</h2>
-    <p class="subtitle">Estimate how long it takes to read your text.</p>
-    <textarea id="readingText" placeholder="Paste your text here..."></textarea>
-    <button onclick="calculateReadingTime()">Calculate Reading Time</button>
-    <p class="result" id="readingResult"></p>
-</div>
-<div class="card">
-    <h2>05. Duplicate Line Remover</h2>
-    <p class="subtitle">Remove repeated lines from your text.</p>
-    <textarea id="duplicateText" placeholder="Paste your text here..."></textarea>
-    <button onclick="removeDuplicateLines()">Remove Duplicate Lines</button>
-    <p class="result" id="duplicateResult"></p>
-</div>
-<section class="card" id="about">
-    <h2>About TextPro</h2>
-    <p class="subtitle">
-        TextPro provides simple and free online tools to help you
-        count words, convert text and remove extra spaces quickly.
-    </p>
+<section class="hero" id="home">
+<h1>Free Online Text Tools</h1>
+<p>Count words, clean text, change letter case and organize your writing with easy, free tools.</p>
+<a href="#tools">Explore Tools ↓</a>
 </section>
+<main class="container" id="tools">
+<div class="section-title">
+<h2>Our Free Tools</h2>
+<p>Simple and useful tools for your everyday writing.</p>
+</div>
+<div class="grid">
+<section class="card">
+<h3>1. Word Counter</h3>
+<p>Count words, characters and reading time.</p>
+<textarea id="text" placeholder="Type or paste your text..." oninput="countText()"></textarea>
+<div class="stats">
+<div class="stat"><strong id="words">0</strong><span>Words</span></div>
+<div class="stat"><strong id="chars">0</strong><span>Characters</span></div>
+<div class="stat"><strong id="reading">0</strong><span>Minutes</span></div>
+</div>
+<button onclick="clearText()">Clear Text</button>
+</section>
+
+<section class="card">
+<h3>2. Case Converter</h3>
+<p>Convert text into different letter cases.</p>
+<textarea id="caseText" placeholder="Enter text here..."></textarea>
+<button onclick="convertCase('upper')">UPPERCASE</button>
+<button onclick="convertCase('lower')">lowercase</button>
+<button onclick="convertCase('title')">Title Case</button>
+<button onclick="convertCase('sentence')">Sentence case</button>
+<button onclick="copyText('caseText')">Copy Text</button>
+</section>
+
+<section class="card">
+<h3>3. Remove Extra Spaces</h3>
+<p>Clean unwanted spaces from your text.</p>
+<textarea id="spaceText" placeholder="Paste text here..."></textarea>
+<button onclick="removeSpaces()">Remove Extra Spaces</button>
+<button onclick="copyText('spaceText')">Copy Text</button>
+</section>
+
+<section class="card">
+<h3>4. Reading Time Calculator</h3>
+<p>Estimate how long your text takes to read.</p>
+<textarea id="readingText" placeholder="Paste text here..."></textarea>
+<button onclick="calculateReadingTime()">Calculate Time</button>
+<div class="result" id="readingResult">Your reading time will appear here.</div>
+</section>
+
+<section class="card">
+<h3>5. Duplicate Line Remover</h3>
+<p>Remove repeated lines from your text.</p>
+<textarea id="duplicateText" placeholder="Enter lines here..."></textarea>
+<button onclick="removeDuplicateLines()">Remove Duplicates</button>
+</section>
+
+<section class="card">
+<h3>6. Text Reverser</h3>
+<p>Reverse the order of your text.</p>
+<textarea id="reverseText" placeholder="Type text here..."></textarea>
+<button onclick="reverseText()">Reverse Text</button>
+</section>
+
+<section class="card">
+<h3>7. Remove Empty Lines</h3>
+<p>Delete blank lines from your text.</p>
+<textarea id="emptyText" placeholder="Enter text with blank lines..."></textarea>
+<button onclick="removeEmptyLines()">Remove Empty Lines</button>
+</section>
+
+<section class="card">
+<h3>8. Find and Replace</h3>
+<p>Replace a word or phrase in your text.</p>
+<textarea id="replaceText" placeholder="Enter your text..."></textarea>
+<input id="findWord" placeholder="Word to find">
+<input id="newWord" placeholder="Replace with">
+<button onclick="findReplace()">Find and Replace</button>
+</section>
+
+<section class="card">
+<h3>9. Sort Lines</h3>
+<p>Arrange lines alphabetically.</p>
+<textarea id="sortText" placeholder="Enter one item per line..."></textarea>
+<button onclick="sortLines()">Sort A–Z</button>
+<button onclick="sortLines(true)">Sort Z–A</button>
+</section>
+
+<section class="card">
+<h3>10. URL Slug Generator</h3>
+<p>Turn a title into a clean URL slug.</p>
+<input id="slugText" placeholder="Enter a page title">
+<button onclick="makeSlug()">Generate Slug</button>
+<div class="result" id="slugResult">Your URL slug will appear here.</div>
+</section>
+</div>
+<section class="container" id="about">
+<div class="about">
+<h2>About TextPro</h2>
+<p>TextPro provides free online text tools to help students, writers, bloggers and website owners work with text more easily. Count words, clean text, convert letter case and organize lines using simple tools.</p>
+<p>Our goal is to make everyday writing tasks faster and easier on mobile phones and computers.</p>
+</div>
+</section>
+</main>
 
 <footer>
-    © 2026 TextPro · Free Online Text Tools
+<p>© 2026 TextPro. All rights reserved.</p>
+<p>Free online text tools for everyone.</p>
+<a href="#home">Back to Top ↑</a>
 </footer>
 
-</div>
-
 <script>
-function countText() {
-    const text = document.getElementById("text").value;
-    const words = text.trim()
-        ? text.trim().split(/\s+/).length : 0;
-
-    document.getElementById("result").textContent =
-   "Words: " + words + " | Characters: " + text.length +
-" | Reading Time: " + Math.max(1, Math.ceil(words / 200)) + " min";
+function countText(){
+const t=document.getElementById("text").value;
+const trimmed=t.trim();
+const words=trimmed?trimmed.split(/\s+/).length:0;
+document.getElementById("words").textContent=words;
+document.getElementById("chars").textContent=t.length;
+document.getElementById("reading").textContent=words?Math.max(1,Math.ceil(words/200)):0;
 }
 
-function clearText() {
-    document.getElementById("text").value = "";
-    countText();
+function clearText(){
+document.getElementById("text").value="";
+countText();
 }
 
-function convertCase(type) {
-    const box = document.getElementById("caseText");
-    let text = box.value;
-
-    if (type === "upper") {
-        text = text.toUpperCase();
-    } else if (type === "lower") {
-        text = text.toLowerCase();
-    } else if (type === "title") {
-        text = text.toLowerCase()
-            .replace(/\b\w/g, c => c.toUpperCase());
-    } else if (type === "sentence") {
-        text = text.toLowerCase()
-            .replace(/(^\s*\w|[.!?]\s+\w)/g,
-            c => c.toUpperCase());
-    }
-
-    box.value = text;
-    document.getElementById("message").textContent =
-        "Text converted successfully!";
+function convertCase(type){
+const el=document.getElementById("caseText");
+let t=el.value;
+if(type==="upper") t=t.toUpperCase();
+if(type==="lower") t=t.toLowerCase();
+if(type==="title") t=t.toLowerCase().replace(/\b\w/g,c=>c.toUpperCase());
+if(type==="sentence") t=t.toLowerCase().replace(/(^\s*\w|[.!?]\s*\w)/g,c=>c.toUpperCase());
+el.value=t;
 }
 
-function copyText() {
-    const box = document.getElementById("caseText");
-
-    if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(box.value)
-        .then(() => {
-            document.getElementById("message").textContent =
-                "Text copied successfully!";
-        })
-        .catch(() => fallbackCopy(box));
-    } else {
-        fallbackCopy(box);
-    }
+function removeSpaces(){
+const el=document.getElementById("spaceText");
+el.value=el.value.replace(/[ \t]+/g," ").replace(/\s*\n\s*/g,"\n").trim();
 }
 
-function fallbackCopy(box) {
-    box.select();
-    const copied = document.execCommand("copy");
-
-    document.getElementById("message").textContent =
-        copied ? "Text copied successfully!" :
-        "Please copy the selected text manually.";
+function calculateReadingTime(){
+const t=document.getElementById("readingText").value.trim();
+const words=t?t.split(/\s+/).length:0;
+const mins=words?Math.max(1,Math.ceil(words/200)):0;
+document.getElementById("readingResult").textContent=
+"Word count: "+words+" | Estimated reading time: "+mins+" minute(s).";
 }
 
-function removeSpaces() {
-    const box = document.getElementById("spaceText");
-
-    box.value = box.value.replace(/\s+/g, " ").trim();
-
-    document.getElementById("spaceResult").textContent =
-        "Your text is clean!";
+function removeDuplicateLines(){
+const el=document.getElementById("duplicateText");
+const lines=el.value.split("\n");
+el.value=[...new Set(lines)].join("\n");
 }
-function readingTime() {
-    const text = document.getElementById("text").value;
-    const words = text.trim() ? text.trim().split(/\s+/).length : 0;
-    const minutes = Math.max(1, Math.ceil(words / 200));
 
-    document.getElementById("result").textContent =
-        "Words: " + words + " | Characters: " + text.length +
-        " | Reading Time: " + minutes + " min";
+function reverseText(){
+const el=document.getElementById("reverseText");
+el.value=Array.from(el.value).reverse().join("");
 }
-function calculateReadingTime() {
-    const text = document.getElementById("readingText").value.trim();
-    const words = text ? text.split(/\s+/).length : 0;
-    const minutes = Math.ceil(words / 200);
 
-    document.getElementById("readingResult").textContent =
-        "Words: " + words + " | Reading Time: " + minutes + " min";
+function removeEmptyLines(){
+const el=document.getElementById("emptyText");
+el.value=el.value.split("\n").filter(line=>line.trim()!=="").join("\n");
 }
-function removeDuplicateLines() {
-    const text = document.getElementById("duplicateText").value;
-    const lines = text.split("\n");
-    const uniqueLines = [...new Set(lines)];
 
-    document.getElementById("duplicateResult").textContent =
-        "Removed " + (lines.length - uniqueLines.length) + " duplicate lines.";
+function findReplace(){
+const el=document.getElementById("replaceText");
+const find=document.getElementById("findWord").value;
+const replacement=document.getElementById("newWord").value;
+if(!find){
+alert("Please enter a word to find.");
+return;
+}
+el.value=el.value.split(find).join(replacement);
+}
 
-    document.getElementById("duplicateText").value =
-        uniqueLines.join("\n");
+function sortLines(desc=false){
+const el=document.getElementById("sortText");
+const lines=el.value.split("\n").sort((a,b)=>
+a.localeCompare(b,undefined,{sensitivity:"base"})
+);
+if(desc) lines.reverse();
+el.value=lines.join("\n");
+}
+
+function makeSlug(){
+const title=document.getElementById("slugText").value;
+const slug=title.toLowerCase().trim()
+.replace(/[^a-z0-9\s-]/g,"")
+.replace(/\s+/g,"-")
+.replace(/-+/g,"-")
+.replace(/^-|-$/g,"");
+document.getElementById("slugResult").textContent=slug||"Please enter a title.";
+}
+
+function copyText(id){
+const el=document.getElementById(id);
+el.select();
+if(navigator.clipboard&&window.isSecureContext){
+navigator.clipboard.writeText(el.value)
+.then(()=>alert("Text copied!"))
+.catch(()=>fallbackCopy(el));
+}else{
+fallbackCopy(el);
+}
+}
+
+function fallbackCopy(el){
+try{
+const ok=document.execCommand("copy");
+alert(ok?"Text copied!":"Please select and copy the text manually.");
+}catch(e){
+alert("Please select and copy the text manually.");
+}
 }
 </script>
-
 </body>
 </html>
