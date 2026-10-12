@@ -43,6 +43,63 @@ footer{background:#080d19;color:#d3e5ff;text-align:center;padding:25px;margin-to
 footer a{color:#55d6ff}
 @media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.grid{grid-template-columns:1fr}header{justify-content:center;gap:12px}nav a{margin:0 7px}.hero{padding:40px 16px}.hero h1{font-size:30px}.card{padding:18px}}
+/* TextPro Premium Polish */
+.logo {
+  letter-spacing: 1px;
+  text-shadow: 0 0 18px #1688e855;
+}
+
+nav a {
+  transition: color 0.25s ease;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero a {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 5px 20px #55d6ff30;
+}
+
+.hero a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 26px #55d6ff55;
+}
+
+.card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.card:hover {
+  box-shadow: 0 12px 30px #00000045;
+}
+
+button {
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+.about {
+  line-height: 1.8;
+}
+
+::selection {
+  background: #1688e8;
+  color: white;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
 </style>
 </head>
 <body>
