@@ -315,6 +315,15 @@ function removeSpaces() {
     document.getElementById("spaceResult").textContent =
         "Your text is clean!";
 }
+function readingTime() {
+    const text = document.getElementById("text").value;
+    const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+    const minutes = Math.max(1, Math.ceil(words / 200));
+
+    document.getElementById("result").textContent =
+        "Words: " + words + " | Characters: " + text.length +
+        " | Reading Time: " + minutes + " min";
+}
 </script>
 
 </body>
