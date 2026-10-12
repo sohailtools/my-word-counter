@@ -238,6 +238,13 @@ transform: translateY(0);
     <button onclick="calculateReadingTime()">Calculate Reading Time</button>
     <p class="result" id="readingResult"></p>
 </div>
+<div class="card">
+    <h2>05. Duplicate Line Remover</h2>
+    <p class="subtitle">Remove repeated lines from your text.</p>
+    <textarea id="duplicateText" placeholder="Paste your text here..."></textarea>
+    <button onclick="removeDuplicateLines()">Remove Duplicate Lines</button>
+    <p class="result" id="duplicateResult"></p>
+</div>
 <section class="card" id="about">
     <h2>About TextPro</h2>
     <p class="subtitle">
@@ -338,6 +345,17 @@ function calculateReadingTime() {
 
     document.getElementById("readingResult").textContent =
         "Words: " + words + " | Reading Time: " + minutes + " min";
+}
+function removeDuplicateLines() {
+    const text = document.getElementById("duplicateText").value;
+    const lines = text.split("\n");
+    const uniqueLines = [...new Set(lines)];
+
+    document.getElementById("duplicateResult").textContent =
+        "Removed " + (lines.length - uniqueLines.length) + " duplicate lines.";
+
+    document.getElementById("duplicateText").value =
+        uniqueLines.join("\n");
 }
 </script>
 
