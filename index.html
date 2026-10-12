@@ -100,6 +100,97 @@ button:hover {
     scroll-behavior: auto !important;
   }
 }
+/* Professional TextPro Homepage */
+.hero {
+  padding: 75px 20px 65px;
+  background:
+    radial-gradient(ellipse at top right, #1769aa55, transparent 45%),
+    linear-gradient(135deg, #0b1120, #102747, #075985);
+  color: #ffffff;
+  text-align: center;
+  border-bottom: 1px solid #244c70;
+}
+
+.hero-content {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 8px 15px;
+  border: 1px solid #55d6ff66;
+  border-radius: 30px;
+  background: #55d6ff12;
+  color: #80e2ff;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 22px;
+}
+
+.hero h1 {
+  font-size: clamp(34px, 6vw, 58px);
+  line-height: 1.15;
+  margin: 0 auto 20px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.hero h1 span {
+  display: block;
+  color: #55d6ff;
+}
+
+.hero p {
+  max-width: 680px;
+  margin: 0 auto 28px;
+  color: #d0e1f8;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.hero-button {
+  display: inline-block;
+  padding: 14px 25px;
+  border-radius: 10px;
+  background: #55d6ff;
+  color: #071426;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 8px 25px #55d6ff30;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.hero-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px #55d6ff50;
+}
+
+.hero-highlights {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px 25px;
+  margin-top: 30px;
+  color: #d6e9ff;
+  font-size: 14px;
+}
+
+@media (max-width: 560px) {
+  .hero {
+    padding: 50px 17px 45px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .hero-highlights {
+    gap: 10px 15px;
+    font-size: 12px;
+  }
+}
 </style>
 </head>
 <body>
@@ -112,9 +203,17 @@ button:hover {
 </nav>
 </header>
 <section class="hero" id="home">
-<h1>Free Online Text Tools</h1>
-<p>Count words, clean text, change letter case and organize your writing with easy, free tools.</p>
-<a href="#tools">Explore Tools ↓</a>
+  <div class="hero-content">
+    <span class="hero-badge">✨ FREE ONLINE TEXT TOOLS</span>
+    <h1>Make Your Text <span>Better & Faster</span></h1>
+    <p>Write smarter with free, simple and powerful text tools. Count words, convert cases, clean text and organize your writing — all in one place.</p>
+    <a class="hero-button" href="#tools">Explore All 10 Tools ↓</a>
+    <div class="hero-highlights">
+      <span>✓ 100% Free</span>
+      <span>✓ Easy to Use</span>
+      <span>✓ Mobile Friendly</span>
+    </div>
+  </div>
 </section>
 <main class="container" id="tools">
 <div class="section-title">
