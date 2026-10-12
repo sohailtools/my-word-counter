@@ -231,7 +231,13 @@ transform: translateY(0);
     <button onclick="removeSpaces()">Clean My Text</button>
     <p class="result" id="spaceResult"></p>
 </div>
-
+<div class="card">
+    <h2>04. Reading Time Calculator</h2>
+    <p class="subtitle">Estimate how long it takes to read your text.</p>
+    <textarea id="readingText" placeholder="Paste your text here..."></textarea>
+    <button onclick="calculateReadingTime()">Calculate Reading Time</button>
+    <p class="result" id="readingResult"></p>
+</div>
 <section class="card" id="about">
     <h2>About TextPro</h2>
     <p class="subtitle">
@@ -324,6 +330,14 @@ function readingTime() {
     document.getElementById("result").textContent =
         "Words: " + words + " | Characters: " + text.length +
         " | Reading Time: " + minutes + " min";
+}
+function calculateReadingTime() {
+    const text = document.getElementById("readingText").value.trim();
+    const words = text ? text.split(/\s+/).length : 0;
+    const minutes = Math.ceil(words / 200);
+
+    document.getElementById("readingResult").textContent =
+        "Words: " + words + " | Reading Time: " + minutes + " min";
 }
 </script>
 
