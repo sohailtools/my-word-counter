@@ -317,7 +317,14 @@ nav a:hover {
 <button onclick="convertCase('sentence')">Sentence case</button>
 <button onclick="copyText('caseText')">Copy Text</button>
 </section>
-
+<section class="card">
+  <h3>3. Character Counter</h3>
+  <p>Count characters with and without spaces.</p>
+  <textarea id="charToolText" oninput="updateCharTool()" placeholder="Type your text here..." style="width:100%;height:100px;padding:12px;box-sizing:border-box;border-radius:8px;"></textarea>
+  <p>Characters (with spaces): <strong id="charToolWithSpaces">0</strong></p>
+  <p>Characters (without spaces): <strong id="charToolWithoutSpaces">0</strong></p>
+  <p>Words: <strong id="charToolWords">0</strong></p>
+</section>
 <section class="card">
 <h3>3. Remove Extra Spaces</h3>
 <p>Clean unwanted spaces from your text.</p>
@@ -530,6 +537,12 @@ alert("Please select and copy the text manually.");
       text.trim() ? text.trim().split(/\s+/).length : 0;
   });
 })();
+function updateCharTool() {
+  const text = document.getElementById("charToolText").value;
+  document.getElementById("charToolWithSpaces").textContent = text.length;
+  document.getElementById("charToolWithoutSpaces").textContent = text.replace(/\s/g, "").length;
+  document.getElementById("charToolWords").textContent = text.trim() ? text.trim().split(/\s+/).length : 0;
+}
 </script>
 </body>
 </html>
