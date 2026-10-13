@@ -500,5 +500,36 @@ alert("Please select and copy the text manually.");
 }
 }
 </script>
+<section id="character-counter" style="background:#1e293b;color:white;padding:20px;border-radius:12px;margin:20px 0;">
+  <h2>Character Counter</h2>
+  <p>Count characters, words and spaces instantly.</p>
+
+  <textarea id="characterText"
+    placeholder="Type or paste your text here..."
+    style="width:100%;height:130px;padding:12px;box-sizing:border-box;border-radius:8px;font-size:16px;"></textarea>
+
+  <p>Characters (with spaces): <strong id="charWithSpaces">0</strong></p>
+  <p>Characters (without spaces): <strong id="charWithoutSpaces">0</strong></p>
+  <p>Words: <strong id="charWordCount">0</strong></p>
+</section>
+
+<script>
+(function () {
+  const textBox = document.getElementById("characterText");
+
+  textBox.addEventListener("input", function () {
+    const text = textBox.value;
+
+    document.getElementById("charWithSpaces").textContent =
+      text.length;
+
+    document.getElementById("charWithoutSpaces").textContent =
+      text.replace(/\s/g, "").length;
+
+    document.getElementById("charWordCount").textContent =
+      text.trim() ? text.trim().split(/\s+/).length : 0;
+  });
+})();
+</script>
 </body>
 </html>
