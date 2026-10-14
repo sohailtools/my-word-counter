@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sohailtools.github.io/my-word-counter/sitemap.xml
